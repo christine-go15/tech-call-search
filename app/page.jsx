@@ -11,11 +11,9 @@ export default function Page() {
   async function handleSubmit(e) {
     e.preventDefault();
     if (!query.trim()) return;
-
     setLoading(true);
     setError('');
     setResults(null);
-
     try {
       const res = await fetch('/api/search', {
         method: 'POST',
@@ -23,7 +21,6 @@ export default function Page() {
         body: JSON.stringify({ query }),
       });
       const data = await res.json();
-
       if (!res.ok) {
         setError(data.error || 'Something went wrong.');
       } else {
@@ -39,18 +36,16 @@ export default function Page() {
   return (
     <main className="page">
       <div className="header">
-        <h1>Tech Call Library</h1>
-        <p>
-          Search past tech calls by keyword to find the exact call and moment where a topic
-          was discussed.
-        </p>
+        <p className="header-eyebrow">Firestarter Funnels</p>
+        <h1>Tech Call <span style={{fontFamily: '"Printed Moments", cursive'}}>Library</span></h1>
+        <p>Search past tech calls by keyword to find the exact call and moment where a topic was discussed.</p>
       </div>
 
       <form className="search-form" onSubmit={handleSubmit}>
         <input
           className="search-input"
           type="text"
-          placeholder="e.g. domain renewal, email setup, SSL..."
+          placeholder="e.g. domain renewal, email setup, membership..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
@@ -71,9 +66,7 @@ export default function Page() {
           {results.map((r, i) => (
             <article className="result-card" key={i}>
               <div className="result-meta">
-                <span className="result-date">
-                  {r.title ? r.title : r.date}
-                </span>
+                <span className="result-date">{r.title ? r.title : r.date}</span>
                 <span className="result-timestamp">{r.timestamp}</span>
                 {r.speaker && <span className="result-speaker">{r.speaker}</span>}
               </div>
@@ -82,6 +75,10 @@ export default function Page() {
           ))}
         </div>
       )}
+
+      <div className="footer-note">
+        Firestarter Funnels · Tech Call Library · Internal use only
+      </div>
     </main>
   );
 }
