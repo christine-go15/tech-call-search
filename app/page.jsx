@@ -37,7 +37,7 @@ export default function Page() {
     <main className="page">
       <div className="header">
         <p className="header-eyebrow">Firestarter Funnels</p>
-        <h1>Tech Call <span style={{fontFamily: '"Printed Moments", cursive'}}>Library</span></h1>
+        <h1>Tech Call <span style={{fontFamily: '"Great Vibes", cursive'}}>Library</span></h1>
         <p>Search past tech calls by keyword to find the exact call and moment where a topic was discussed.</p>
       </div>
 

@@ -7,10 +7,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link
-          href="https://fonts.cdnfonts.com/css/printed-moments"
-          rel="stylesheet"
-        />
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
       </head>
       <body>{children}</body>
     </html>
